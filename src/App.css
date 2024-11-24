@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #90ff8a; /* Темный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chat-container {
+  position: relative; /* Относительное позиционирование для контроля вложенных элементов */
+  width: 400px; /* Ширина чата */
+  background: #1e1e1e;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Тень для эстетики */
+  flex-direction: column;
+  z-index: 1; /* Поверх круга */
+}
+
+.chat-history {
+  position: relative; /* Относительное позиционирование для точного контроля */
+  height: 200px;
+  padding: 20px; /* Отступы внутри истории */
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 10px; /* Расстояние между сообщениями */
+  background: #1a1a1a;
+  border-radius: 20px;
+  border-bottom: 1px solid #333;
+  scroll-behavior: smooth; /* Плавный скролл */
+  margin-bottom: 20px; /* Расстояние снизу */
+  z-index: 1; /* Поверх пульсирующего круга */
+}
+
+/* Цвет текста для сообщений пользователя */
+.message.user {
+    color: white; /* Цвет для сообщений пользователя, например, синий */
+}
+
+/* Цвет текста для сообщений бота */
+.message.bot {
+    color: #90ff8a; /* Цвет для сообщений бота, например, оранжевый */
+}
+
+.pulsing-circle {
+  position: absolute; /* Абсолютное позиционирование */
+  left: 60px; /* Горизонтальное смещение от левого края */
+  top: 45px; /* Вертикальное смещение от верхнего края */
+  transform: translate(-50%, -50%); /* Центрирование, если нужно */
+  width: 650px; /* Размер круга */
+  height: 650px;
+  background: white;
+  animation: pulse 2s infinite ease-in-out;
+  z-index: -1; /* Размещаем за чатом */
+  border-radius: 50%; /* Круг */
+}
+
+.input-container {
+  display: flex;
+  padding: 10px; /* Отступы внутри контейнера */
+  gap: 270px; /* Расстояние между элементами */
+  justify-content: flex-end;
+  border-radius: 20px;
+  align-items: center;
+  background: #1e1e1e;
+}
+
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #555;
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  white-space: normal; /* Отключает перенос по умолчанию */
+  word-wrap: break-word; /* Принудительный разрыв слов */
+  width: 100%; /* Чтобы поле ввода заполняло весь контейнер */
+}
+
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: white;
+  background: #048612;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background: #cccccc; /* Серый фон */
+  cursor: not-allowed; /* Курсор "не доступно" */
+}
+
+button:hover {
+  background: #43a047;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); /* Исходный размер */
+    opacity: 0.6; /* Полупрозрачный */
+  }
+  50% {
+    transform: scale(1.2); /* Увеличиваем размер */
+    opacity: 0.3; /* Более прозрачный */
+  }
+}
