@@ -60,7 +60,6 @@ function App() {
 
     return (
         <>
-             {loading && <div className="pulsing-circle"></div>}
             <div className="chat-history" ref={chatHistoryRef}>
                 {messages.map((message, index) => (
                     <div
