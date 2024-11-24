@@ -27,7 +27,7 @@ function App() {
             console.log(inputValue);
             const response = await axios({
                 method: "POST",
-                url: "http://localhost:8000/chat/",
+                url: "https://7372-176-59-172-99.ngrok-free.app/chat/",
                 data:{text: inputValue},
             })
             console.log(response.data);
